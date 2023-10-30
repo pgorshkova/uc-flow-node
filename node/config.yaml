@@ -1,4 +1,4 @@
-service_name: 'example'
+service_name: '8a0e986a-6d84-4cd6-9bda-fa0a53c61a9f'
 
 http:
   url: http://0.0.0.0:9000
@@ -15,8 +15,8 @@ uc_flow_node:
   register_on_start: false
   execute_view_queue_size: 500
   execute_view_workers: 5
-  private_url: https://bc90-178-209-118-100.ngrok.io
-  public_url: https://bc90-178-209-118-100.ngrok.io
+  private_url: https://daa2-2a00-1fa0-4a78-ca63-7404-ad13-4d1a-7022.ngrok.io
+  public_url: https://daa2-2a00-1fa0-4a78-ca63-7404-ad13-4d1a-7022.ngrok.io
   uc_flow:
-    domain: https://uc-flow-v2-prod-api.comagic.ru
-    jwt_secret: 9109a79d-74f9-45bd-b369-5e7a885421e5s
+    domain: https://uc-flow-v2-pp-api.comagic.ru
+    jwt_secret: pg5748

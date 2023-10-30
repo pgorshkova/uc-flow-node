@@ -10,24 +10,42 @@ from uc_http_requester.requester import Request
 
 
 class NodeType(flow.NodeType):
-    id: str = 'Example'
+    id: str = '8a0e986a-6d84-4cd6-9bda-fa0a53c61a9f'
     type: flow.NodeType.Type = flow.NodeType.Type.action
-    name: str = 'Example'
-    displayName: str = 'Example'
-    icon: str = '<svg><text x="8" y="50" font-size="50">🤖</text></svg>'
-    description: str = 'Example'
-    properties: List[Property] = [
+    name: str = 'Sum'
+    displayName: str = 'Sum'
+    icon: str = '<svg><text x="8" y="50" font-size="50">👻</text></svg>'
+    description: str = 'Sum of string and number'
+    properties: List[Property] =[
         Property(
-            displayName='Тестовое поле',
-            name='foo_field',
+            displayName='Text field',
+            name='first_value',
             type=Property.Type.JSON,
-            placeholder='Foo placeholder',
-            description='Foo description',
+            placeholder='Write first number',
+            description='String',
             required=True,
-            default='Test data',
-        )
+            default='0',
+        ),
+        Property(
+            displayName='Number field',
+            name='second_value',
+            type=Property.Type.NUMBER,
+            placeholder='Write second number',
+            description='Number',
+            required=True,
+            default=0,
+        ),
+        Property(
+            displayName='Format of answer',
+            name='answer_format',
+            type=Property.Type.BOOLEAN,
+            placeholder='Choose needed format:text or number',
+            description='Format',
+            required=True,
+            default=False,
+        ),
     ]
-
+    
 
 class InfoView(info.Info):
     class Response(info.Info.Response):
@@ -37,16 +55,20 @@ class InfoView(info.Info):
 class ExecuteView(execute.Execute):
     async def post(self, json: NodeRunContext) -> NodeRunContext:
         try:
-            await json.save_result({
-                "result": json.node.data.properties['foo_field']
-            })
+            properties = json.node.data.properties
+            the_first_value = int(properties.get('first_value', "0")) if properties is not None else 0
+            the_second_value = properties.get('second_value', 0) if properties is not None else 0
+            the_answer_format = properties.get('answer_format', False) if properties is not None else False
+            
+            sum = the_first_value + the_second_value
+            sum = sum if the_answer_format else str(sum)
+            await json.save_result({"result": sum})
             json.state = RunState.complete
         except Exception as e:
             self.log.warning(f'Error {e}')
             await json.save_error(str(e))
             json.state = RunState.error
         return json
-
 
 class Service(NodeService):
     class Routes(NodeService.Routes):
