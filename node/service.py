@@ -12,10 +12,10 @@ from uc_http_requester.requester import Request
 class NodeType(flow.NodeType):
     id: str = '8a0e986a-6d84-4cd6-9bda-fa0a53c61a9f'
     type: flow.NodeType.Type = flow.NodeType.Type.action
-    name: str = 'Example'
-    displayName: str = 'Example'
+    name: str = 'Sum'
+    displayName: str = 'Sum'
     icon: str = '<svg><text x="8" y="50" font-size="50">🤖</text></svg>'
-    description: str = 'Example'
+    description: str = 'Sum of string and number'
     properties: List[Property] = [
         Property(
             displayName='Text field',
