@@ -11,9 +11,9 @@
       },
       "console": "integratedTerminal",
       "args": [
-        "node.service",
+        "nodes.hophop.action.node.component",
         "-c",
-        "node/config.yaml"
+        "nodes/hophop/action/node/config.yaml"
       ]
     }
   ]
