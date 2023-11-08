@@ -11,9 +11,9 @@
       },
       "console": "integratedTerminal",
       "args": [
-        "nodes.hophop.action.node.component",
+        "nodes.alfacrm.action.node.component",
         "-c",
-        "nodes/hophop/action/node/config.yaml"
+        "nodes/alfacrm/action/node/config.yaml"
       ]
     }
   ]

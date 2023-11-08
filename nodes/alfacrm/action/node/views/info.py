@@ -1,5 +1,5 @@
 from uc_flow_nodes.views import info
-from nodes.hophop.action.node.schemas.node_type import NodeType
+from nodes.alfacrm.action.node.schemas.node_type import NodeType
 
 class InfoView(info.Info):
     class Response(info.Info.Response):

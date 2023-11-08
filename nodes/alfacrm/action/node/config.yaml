@@ -1,4 +1,4 @@
-service_name: 'e99f19bc-2506-4265-b368-763fa8e4c1e2'
+service_name: '37172e68-7b2e-4e19-bd8b-ee983c3defa6'
 
 http:
   url: http://0.0.0.0:9000
@@ -8,6 +8,7 @@ http:
       - Cache-Control
       - Authorization
       - X-Total-Count
+      - Access-Control-Allow-Origin
     access_control_allow_origin:
       - https://go2.uiscom.ru
 
@@ -15,8 +16,8 @@ uc_flow_node:
   register_on_start: false
   execute_view_queue_size: 500
   execute_view_workers: 5
-  private_url: https://0a6e-194-54-176-70.ngrok.io
-  public_url: https://0a6e-194-54-176-70.ngrok.io
+  private_url: https://0d85-194-54-176-66.ngrok.io
+  public_url: https://0d85-194-54-176-66.ngrok.io
   uc_flow:
     domain: https://uc-flow-v2-pp-api.comagic.ru
     jwt_secret: pg5746
